@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="conatiner" style="margin: 2%;">
+
+        {% for document in doc  %}
+        <div class="jumbotron" style="height: 370px;">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4"><a href="{{url_for('post', l=document['title'])}}" class="link"><h1>{{document.title}}</h1></a></legend>
+            <small class="text-muted">{{document.date}}</small>
+            <hr style="width: 70px;margin-left: 0%;">
+            <div class="form-group" style="height: 150px;">
+                <pre class="h6" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'Comfortaa', cursive;">{{document.content}}</pre>
+            </div>
+        </fieldset>
+   </div>
+    {% endfor %}
+    </div>
+{% endblock %}

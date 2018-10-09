@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <form action="" method="post">
+       <span class="display-4 text-center">Add New Post</span>
+    <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Title</span>
+  </div>
+  <input type="text" class="form-control" placeholder="Title" name="title" required>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Image URL</span>
+  </div>
+  <input type="text" class="form-control" name="image" placeholder="Enter Link for image">
+</div>
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">URLs</span>
+  </div>
+  <input type="text" class="form-control" name="link" placeholder="Other URLs">
+</div>
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Tag</label>
+  </div>
+  <select class="custom-select" name="tag" required>
+    <option value="Entertainment">Entertainment</option>
+    <option value="Technology">Technology</option>
+    <option value="Facts">Facts and Figures</option>
+    <option value="Movies">Movies</option>
+    <option value="Others">Others</option>
+    <option value="Sports">Sports</option>
+  </select>
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Content</span>
+  </div>
+      <textarea name="content" class="form-control" required rows="12"></textarea>
+</div>
+<br>
+{% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-success">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+<button type="submit" style="margin-left: 45%" class="btn btn-outline-success">Add Post</button>
+
+  </form>
+</div>
+{% endblock %}
